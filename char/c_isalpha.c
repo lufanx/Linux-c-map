@@ -15,7 +15,7 @@ main(int argc, char *argv[])
 
 	memset(&dst, 0, sizeof(dst));
 	while (buf[i] != '\0') {
-		/* If buf[i] is englist char, isalpha() will return True  */
+		/* If buf[i] is alpha, isalpha() will return True  */
 		if (isalpha(buf[i])) {
 			dst[j] = buf[i];
 			j++;

@@ -15,7 +15,7 @@ main(int argc, char *argv[])
 
 	memset(&dst, 0, DST_MAX);
 	while (buf[i] != '\0') {
-		/* If buf[i] is char or num will return true  */
+		/* If buf[i] is alnum will return True  */
 		if (isalnum(buf[i])) {
 			dst[j] = buf[i];
 			j++;
