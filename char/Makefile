@@ -1,8 +1,8 @@
 .PHONY:clean
 
-all_c=$(wildcard char/*.c)
-objects=$(patsubst %.c, %.o, $(all_c))
-all_app=$(basename $(objects))
+all_c=$(sort $(wildcard char/*.c))
+objects=$(sort $(patsubst %.c, %.o, $(all_c)))
+all_app=$(sort $(basename $(objects)))
 
 ALL:$(all_app)
 
@@ -13,4 +13,4 @@ $(objects):$(all_c)
 	$(CC) $(CFLAGS) -o $@ -Iinclude -c $<
 
 clean:
-	-rm -fr $(objects) $(all_app)
+	rm -fr $(objects) $(all_app)
