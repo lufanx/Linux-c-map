@@ -4,7 +4,7 @@
 #include <string.h>
 
 int
-main(int argc, char *argv)
+main(int argc, char *argv[])
 {
 	char *buf = "ab 87 ko\tm";
 	int i = 0;

@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "char_include.h"	/* DST_MAX define this .h file  */
+#include "../include/char_include.h"	/* DST_MAX define this .h file  */
 
 int
 main(int argc, char *argv[])

@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "char_include.h"	/* This .h file define DST_MAX  */
+#include "../include/char_include.h"	/* This .h file define DST_MAX  */
 
 int
 main(int argc, char *argv[])

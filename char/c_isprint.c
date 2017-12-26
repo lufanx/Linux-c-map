@@ -10,7 +10,6 @@ main(int argc, char *argv[])
 	int len;
 	int i = 0;
 
-	memset(dst, 0, sizeof(dst));
 	len = strlen(buf) + 1;
 	while (i <= len) {
 		if (isprint(buf[i])) {
