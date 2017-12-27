@@ -18,6 +18,10 @@ c_atol:c_atol.o
 	$(CC) $(CFLAGS) -o $@ $<
 c_atol.o:c_atol.c
 	$(CC) $(CFLAGS) -o $@ -c $<
+c_gcvt:c_gcvt.o
+	$(CC) $(CFLAGS) -o $@ $<
+c_gcvt.o:c_gcvt.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 #clean:
 #	rm -fr $(string_all_app) $(string_objects)
