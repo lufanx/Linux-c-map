@@ -14,6 +14,10 @@ c_atoi:c_atoi.o
 	$(CC) $(CFLAGS) -o $@ $<
 c_atoi.o:c_atoi.c
 	$(CC) $(CFLAGS) -o $@ -c $<
+c_atol:c_atol.o
+	$(CC) $(CFLAGS) -o $@ $<
+c_atol.o:c_atol.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 #clean:
 #	rm -fr $(string_all_app) $(string_objects)
