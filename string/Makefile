@@ -22,6 +22,14 @@ c_gcvt:c_gcvt.o
 	$(CC) $(CFLAGS) -o $@ $<
 c_gcvt.o:c_gcvt.c
 	$(CC) $(CFLAGS) -o $@ -c $<
+c_tolower:c_tolower.o
+	$(CC) $(CFLAGS) -o $@ $<
+c_tolower.o:tolower.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+c_toupper:c_toupper.o
+	$(CC) $(CFLAGS) -o $@ $<
+c_toupper.o:toupper.c
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 #clean:
 #	rm -fr $(string_all_app) $(string_objects)
