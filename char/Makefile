@@ -1,4 +1,4 @@
-.PHONY:clean
+#.PHONY:clean
 
 all_c=$(sort $(wildcard char/*.c))
 objects=$(sort $(patsubst %.c, %.o, $(all_c)))
@@ -66,5 +66,5 @@ c_ispunct:c_ispunct.c
 c_ispunct.o:c_ispunct.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-clean:
-	rm -fr $(objects) $(all_app)
+#clean:
+#	rm -fr $(objects) $(all_app)
