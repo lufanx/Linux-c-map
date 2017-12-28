@@ -28,7 +28,7 @@ main(int argc, char *argv[])
 	length = sizeof(buf)/sizeof(int);
 
 	for (i = 0; i < length-1; i++) {
-		for (j = 0; j < length-1; j++) {
+		for (j = 0; j < length-1-i; j++) {
 			if (buf[j] > buf[j+1]) {
 				SWAP(k, &buf[j], &buf[j+1]);
 			}
