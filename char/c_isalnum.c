@@ -24,7 +24,6 @@ main(int argc, char *argv[])
 	}
 
 	dst[DST_MAX-1] = '\0';
-
 	printf("dst: %s\n", dst);
 
 	return 0;

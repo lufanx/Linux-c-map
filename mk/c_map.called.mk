@@ -1,0 +1,2 @@
+$(DIRS-y):
+	make -C $@

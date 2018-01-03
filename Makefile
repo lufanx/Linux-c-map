@@ -1,8 +1,12 @@
 C_MAP_ROOT_DIR := $(CURDIR)
 
 .PHONY:clean
-include $(CURDIR)/mk/c_map.common.mk
+include $(C_MAP_ROOT_DIR)/mk/c_map.common.mk
 #include $(CURDIR)/char/Makefile
-include $(C_MAP_ROOT_DIR)/string/Makefile
+
+DIRS-y := char
+include $(C_MAP_ROOT_DIR)/mk/c_map.called.mk
+#include $(C_MAP_ROOT_DIR)/string/Makefile
+#include $(C_MAP_ROOT_DIR)/char/Makefile
 clean:
-	rm -fr $(char_objects) $(char_all_app) $(string_objects) $(string_all_app)
+	-rm -fr $(char_objects) $(char_all_app)
