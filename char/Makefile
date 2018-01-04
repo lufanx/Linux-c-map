@@ -4,8 +4,11 @@ char_all_app := $(basename $(char_objects))
 
 ALL:$(char_all_app)
 
-$(char_all_app):$(char_objects)
+$(char_all_app):%:%.o
 	$(CC) $(CFLAGS) -o $@ $<
 
-$(char_objects):$(all_c)
+%.o:%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+	$(RM) $(char_objects) $(char_all_app)

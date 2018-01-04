@@ -5,10 +5,10 @@ all_app := $(basename $(all_c))
 ALL:$(all_app)
 
 $(all_app):%:%.o
-	$(CC) $(CFLAGS) -o $@ $<
+	$(CC) $(CFLAGS) -o $@ -lm $<
 
 %.o:%.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c -lm $<
 
 clean:
 	$(RM) $(all_o) $(all_app)
