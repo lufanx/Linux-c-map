@@ -1,12 +1,12 @@
 C_MAP_ROOT_DIR := $(CURDIR)
 
-.PHONY:clean
+.PHONY:subsystem clean
 include $(C_MAP_ROOT_DIR)/mk/c_map.common.mk
-#include $(CURDIR)/char/Makefile
 
-DIRS-y := char
 include $(C_MAP_ROOT_DIR)/mk/c_map.called.mk
-#include $(C_MAP_ROOT_DIR)/string/Makefile
-#include $(C_MAP_ROOT_DIR)/char/Makefile
+
+char_all_o := $(patsubst %.c, %.o, $(wildcard char/*.c))
+char_all_app := $(basename $(char_all_o))
+
 clean:
-	-rm -fr $(char_objects) $(char_all_app)
+	-rm -fr $(char_all_o) $(char_all_app)

@@ -1,2 +1,2 @@
-$(DIRS-y):
-	make -C $@
+subsystem:
+	$(MAKE) -C char
