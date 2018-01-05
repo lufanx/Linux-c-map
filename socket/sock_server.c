@@ -1,5 +1,6 @@
 #include "../include/stdinc.h"
 #include "socket_info.h"
+#include "common_function.h"
 
 static void
 usage(char *argv)
@@ -55,6 +56,7 @@ main(int argc, char *argv[])
 	}
 
 	while (1) {
+		stdout_server_info(server_info.port, &server_addr);
 		client_fd = accept(server_info.sockfd, NULL, NULL);
 		if (client_fd < 0) {
 			fprintf(stderr, "accept error\n");
