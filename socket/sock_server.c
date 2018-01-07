@@ -17,6 +17,8 @@ main(int argc, char *argv[])
 	struct sockaddr_in server_addr;
 	int opt;
 	int client_fd;
+	char buf[1024];
+	int size;
 
 	if (argc < 2) {
 		fprintf(stderr, "options error\n");
@@ -43,7 +45,8 @@ main(int argc, char *argv[])
 	memset(&server_addr, 0, sizeof(server_addr));
 	server_addr.sin_family = AF_INET;
 	server_addr.sin_port = htons(atoi(argv[1]));
-	server_addr.sin_addr.s_addr = INADDR_ANY;
+	//server_addr.sin_addr.s_addr = INADDR_ANY;
+	server_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
 	if (bind(server_info.sockfd, (struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
 		fprintf(stderr, "bind error\n");
@@ -62,6 +65,11 @@ main(int argc, char *argv[])
 			fprintf(stderr, "accept error\n");
 			break;
 		}
+		if ((size = read(client_fd, buf, sizeof(buf))) < 0) {
+			fprintf(stderr, "read error\n");
+			break;
+		}
+		printf("buf = %s\n", buf);
 	}	
 
 	close(server_info.sockfd);

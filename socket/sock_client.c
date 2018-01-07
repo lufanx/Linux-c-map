@@ -9,18 +9,24 @@ usage()
 	printf("\tusage[2]: port\n");
 	printf("\t\t-p +port\n");
 }
-
+/*
 static void
-get_fd_info(int argc, char *argv[])
+get_fd_info(int argc, char *argv[], int *port)
 {
 	int opt;
+	
+	ip = (char *)malloc(1024);
+	if (ip = NULL) {
+		fprintf(stderr, "malloc failed\n");
+	}
+
 	while ((opt = getopt(argc, argv, "i:p:")) != -1) {
 		switch (opt) {
 		case 'i':
-			argv[1] = optarg;
+			ip = optarg;
 			break;
 		case 'p':
-			argv[2] = optarg;
+			*port = atoi(optarg);
 			break;
 		default:
 			usage();
@@ -28,12 +34,16 @@ get_fd_info(int argc, char *argv[])
 		}
 	}
 }
+*/
 
 int
 main(int argc, char *argv[])
 {
 	int fd;
 	struct sockaddr_in client_addr;
+	char buf[1024] = "hello server";
+
+	memset(buf, 0, sizeof(buf));
 
 	if (argc < 3) {
 		fprintf(stderr, "options error\n");
@@ -41,7 +51,9 @@ main(int argc, char *argv[])
 		exit(1);
 	}
 
-	get_fd_info(argc, argv);
+	//get_fd_info(argc, argv, &port);
+	//printf("ip = %s\n", ip);
+	//printf("port = %d\n", port);
 
 	fd = socket(AF_INET, SOCK_STREAM, 0);
 	if (fd < 0) {
@@ -56,6 +68,11 @@ main(int argc, char *argv[])
 	
 	if (connect(fd, (struct sockaddr *)&client_addr, sizeof(client_addr)) < 0) {
 		fprintf(stderr, "client connect error\n");
+		exit(1);
+	}
+
+	if (write(fd, buf, strlen(buf)+1) < (strlen(buf)+1)) {
+		fprintf(stderr, "write server error\n");
 		exit(1);
 	}
 
