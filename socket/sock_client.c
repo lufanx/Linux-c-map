@@ -71,7 +71,7 @@ main(int argc, char *argv[])
 		exit(1);
 	}
 
-	if (write(fd, buf, strlen(buf)+1) < (strlen(buf)+1)) {
+	while (write(fd, buf, 5) < 5) {
 		fprintf(stderr, "write server error\n");
 		exit(1);
 	}
