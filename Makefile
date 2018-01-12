@@ -3,7 +3,7 @@ C_MAP_ROOT_DIR := $(CURDIR)
 .PHONY:subsystem clean
 include $(C_MAP_ROOT_DIR)/mk/c_map.common.mk
 
-DIRS := char file math sort string time socket signal
+DIRS := char file math sort string time socket signal error
 
 include $(C_MAP_ROOT_DIR)/mk/c_map.called.mk
 
