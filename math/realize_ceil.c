@@ -1,29 +1,35 @@
 #include "../include/stdinc.h"
 
-char *
+double
 realize_ceil(double i)
 {
 	char *buf;
+	char *split = ".";
+	char *p = NULL;
+	double val = 0;
+
 	buf = (char *)malloc(1024);
 	if (buf == NULL) {
 		fprintf(stderr, "malloc failed\n");
-		return NULL;
+		return 1;
 	}
+
 	memset(buf, 0, 1024);
 	snprintf(buf, 1024, "%f", i);
-	//ltoa(i, buf, 1024);
-	printf("buf = %s\n", buf);
-	return buf;
+	p = strtok(buf, split);
+	val = atoi(p)+1;
+	free(buf);
+
+	return val;
 }
 
 int
 main(int argc, char *argv[])
 {
-	double i = 4.32;
+	double i = 1.98;
 	
-	char *dts = realize_ceil(i);
-	printf("%s\n", dts);
+	i = realize_ceil(i);
+	printf("%f\n", i);
 	
-	free(dts);
 	return 0;
 }
