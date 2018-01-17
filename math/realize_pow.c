@@ -5,11 +5,7 @@ static int val = 0;
 int
 realize_pow(int i, int q)
 {
-<<<<<<< HEAD
 	static int j = 0;	// Control time
-=======
-	static int j = 0;
->>>>>>> cdde26d3f24919a84df5a4b36f8e7b30e9613a50
 	
 	if (j == 0) {
 		val = i;
