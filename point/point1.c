@@ -7,11 +7,8 @@ main(int argc, char *argv[])
 	int (*p)[5];
 	int *q[5];
 	
-<<<<<<< HEAD
 	q[0] = &ch[0];
-=======
 	q[0] = ch;
->>>>>>> 9df6909d0133dcb2f84ab5a5b1897d70eae3f164
 	p = &ch;
 
 	int len1 = sizeof(p);	// 64bits len1 = 8
