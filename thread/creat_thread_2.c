@@ -24,7 +24,7 @@ th_fn(void *arg)
 		usleep(r->time);	
 	}
 
-	return (void *)0;
+	return (void *)0; //pthread_exit((void *)0);
 }
 
 int main(int argc, char *argv[])
